@@ -1,4 +1,5 @@
 from django.db import models
+from app_api.models.tags import Tag
 
 class Marker(models.Model):
     year_erected = models.CharField(max_length=55)
@@ -11,3 +12,4 @@ class Marker(models.Model):
     longitude = models.DecimalField(max_digits=15, decimal_places=6)
     condition = models.CharField(max_length=55)
     mapped_location = models.CharField(max_length=55)
+    tags = models.ManyToManyField("Tag", through="MarkerTag")

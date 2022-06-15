@@ -7,5 +7,5 @@ class MarkerSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Marker
-        fields = ('id', 'year_erected', 'marker_name', 'marker_text', 'civil_war_site', 'notes', 'location', 'latitude', 'longitude', 'condition', 'mapped_location')
+        fields = ('id', 'year_erected', 'marker_name', 'marker_text', 'civil_war_site', 'notes', 'location', 'latitude', 'longitude', 'condition', 'mapped_location', 'images')
         depth = 1
