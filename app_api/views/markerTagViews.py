@@ -28,3 +28,8 @@ class MarkerTagView(ViewSet):
         markerTags = MarkerTag.objects.all()
         serializer = MarkerTagSerializer(markerTags, many=True)
         return Response(serializer.data)
+    
+    def destroy(self, request, pk):
+        marker_tag = MarkerTag.objects.get(pk=pk)
+        marker_tag.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)

@@ -2,8 +2,10 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import status
-from app_api.models import Marker
+from app_api.models import Marker, Tag, MarkerTag
 from app_api.serializers import MarkerSerializer
+from django.contrib.auth.models import User
+from rest_framework.decorators import action
 
 class MarkerView(ViewSet):
     """Unforgotten Nashville marker views"""
@@ -28,3 +30,21 @@ class MarkerView(ViewSet):
         markers = Marker.objects.all()
         serializer = MarkerSerializer(markers, many=True)
         return Response(serializer.data)
+    
+    @action(methods=['put'], detail=True)
+    def add_tag(self, request, pk):
+        """Post request for a user to sign up for an event"""
+    
+        tag = Tag.objects.get(pk=request.data["tag"])
+        user = User.objects.get(pk=request.auth.user.id)
+        MarkerTag.objects.create(marker_id=pk, user=user, tag=tag)
+        return Response({'message': 'Tag added'}, status=status.HTTP_201_CREATED)
+    
+    # @action(methods=['put'], detail=True)
+    # def remove_tag(self, request, pk):
+    #     """Post request for a user to leave an event"""
+    
+    #     tag = Tag.objects.get(pk=request.data["tag"])
+    #     user = User.objects.get(pk=request.auth.user.id)
+    #     MarkerTag.objects.delete(marker_id=pk, user=user, tag=tag)
+    #     return Response({'message': 'Gamer removed'}, status=status.HTTP_204_NO_CONTENT)

@@ -1,9 +1,12 @@
+from urllib import request
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import status
 from app_api.models import Image
+from app_api.models import Marker
 from app_api.serializers import ImageSerializer
+from django.contrib.auth.models import User
 
 class ImageView(ViewSet):
     """Unforgotten Nashville views"""
@@ -28,3 +31,24 @@ class ImageView(ViewSet):
         images = Image.objects.all()
         serializer = ImageSerializer(images, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+        Returns
+            Response -- JSON serialized comment instance
+        """
+        user = User.objects.get(pk=request.auth.user.id)
+        marker = Marker.objects.get(pk=request.data["marker"])
+        
+        image = Image.objects.create(
+            user=user,
+            marker=marker,
+            image=request.data["image"],
+            )
+        serializer = ImageSerializer(image)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def destroy(self, request, pk):
+        image = Image.objects.get(pk=pk)
+        image.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)

@@ -46,3 +46,18 @@ class CommentView(ViewSet):
         serializer = CommentSerializer(comment)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
+    def update(self, request, pk):
+        """Handle PUT requests for a comment
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        comment = Comments.objects.get(pk=pk)
+        serializer = CommentSerializer(comment, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    def destroy(self, request, pk):
+        comment = Comments.objects.get(pk=pk)
+        comment.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
