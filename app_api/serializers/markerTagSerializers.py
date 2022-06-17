@@ -7,4 +7,4 @@ class MarkerTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = MarkerTag
         fields = ('id', 'marker', 'tag')
-        depth = 1
+        depth = 2
