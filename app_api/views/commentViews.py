@@ -27,6 +27,9 @@ class CommentView(ViewSet):
             Response -- JSON serialized list of comments
         """
         comment = Comments.objects.all()
+        marker_id = request.query_params.get('marker_id', None)
+        if marker is not None:
+                marker = marker_id.filter(marker_id=marker)
         serializer = CommentSerializer(comment, many=True)
         return Response(serializer.data)
     
@@ -36,11 +39,11 @@ class CommentView(ViewSet):
             Response -- JSON serialized comment instance
         """
         user = User.objects.get(pk=request.auth.user.id)
-        marker = Marker.objects.get(pk=request.data["marker"])
+        marker_id = Marker.objects.get(pk=request.data["marker_id"])
         
         comment = Comments.objects.create(
             user=user,
-            marker=marker,
+            marker=marker_id,
             text=request.data["text"],
             )
         serializer = CommentSerializer(comment)

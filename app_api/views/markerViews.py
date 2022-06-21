@@ -40,11 +40,3 @@ class MarkerView(ViewSet):
         MarkerTag.objects.create(marker_id=pk, user=user, tag=tag)
         return Response({'message': 'Tag added'}, status=status.HTTP_201_CREATED)
     
-    # @action(methods=['put'], detail=True)
-    # def remove_tag(self, request, pk):
-    #     """Post request for a user to leave an event"""
-    
-    #     tag = Tag.objects.get(pk=request.data["tag"])
-    #     user = User.objects.get(pk=request.auth.user.id)
-    #     MarkerTag.objects.delete(marker_id=pk, user=user, tag=tag)
-    #     return Response({'message': 'Gamer removed'}, status=status.HTTP_204_NO_CONTENT)

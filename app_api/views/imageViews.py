@@ -38,11 +38,11 @@ class ImageView(ViewSet):
             Response -- JSON serialized comment instance
         """
         user = User.objects.get(pk=request.auth.user.id)
-        marker = Marker.objects.get(pk=request.data["marker"])
+        marker_id = Marker.objects.get(pk=request.data["marker_id"])
         
         image = Image.objects.create(
             user=user,
-            marker=marker,
+            marker=marker_id,
             image=request.data["image"],
             )
         serializer = ImageSerializer(image)
