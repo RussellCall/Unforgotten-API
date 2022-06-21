@@ -5,6 +5,8 @@ from rest_framework import status
 from app_api.models import Comments, Marker
 from app_api.serializers import CommentSerializer
 from django.contrib.auth.models import User
+from rest_framework.decorators import action
+
 
 class CommentView(ViewSet):
     """Unforgotten Nashville marker views"""
@@ -28,7 +30,7 @@ class CommentView(ViewSet):
         """
         comment = Comments.objects.all()
         marker_id = request.query_params.get('marker_id', None)
-        if marker is not None:
+        if marker_id is not None:
                 marker = marker_id.filter(marker_id=marker)
         serializer = CommentSerializer(comment, many=True)
         return Response(serializer.data)
@@ -64,3 +66,12 @@ class CommentView(ViewSet):
         comment = Comments.objects.get(pk=pk)
         comment.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    
+    @action(methods=['get'], detail=True)
+    def comments_by_marker(self, request, pk):
+        comments = Comments.objects.filter(marker=pk)
+        serializer=CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    

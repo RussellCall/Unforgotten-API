@@ -7,6 +7,8 @@ from app_api.models import Image
 from app_api.models import Marker
 from app_api.serializers import ImageSerializer
 from django.contrib.auth.models import User
+from rest_framework.decorators import action
+
 
 class ImageView(ViewSet):
     """Unforgotten Nashville views"""
@@ -29,8 +31,21 @@ class ImageView(ViewSet):
             Response -- JSON serialized list of images
         """
         images = Image.objects.all()
+        marker_id = request.query_params.get('marker_id', None)
+        if marker_id is not None:
+                marker = marker_id.filter(marker_id=marker)
         serializer = ImageSerializer(images, many=True)
         return Response(serializer.data)
+    
+    
+        # comment = Comments.objects.all()
+        # marker_id = request.query_params.get('marker_id', None)
+        # if marker_id is not None:
+        #         marker = marker_id.filter(marker_id=marker)
+        # serializer = CommentSerializer(comment, many=True)
+        # return Response(serializer.data)
+    
+    
     
     def create(self, request):
         """Handle POST operations
@@ -52,3 +67,10 @@ class ImageView(ViewSet):
         image = Image.objects.get(pk=pk)
         image.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    @action(methods=['get'], detail=True)
+    def images_by_marker(self, request, pk):
+        images = Image.objects.filter(marker=pk)
+        serializer=ImageSerializer(images, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
