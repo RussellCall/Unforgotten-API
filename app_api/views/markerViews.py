@@ -44,6 +44,7 @@ class MarkerView(ViewSet):
         """Post request for a user to remove a tag from a marker"""
         tag = Tag.objects.get(pk=pk)
         user = User.objects.get(pk=request.auth.user.id)
-        MarkerTag.tag.remove(marker_id=pk, user=user, tag=tag)
+        markerTag = MarkerTag.objects.get(marker_id=pk, user=user, tag=tag)
+        markerTag.delete()
         return Response({'message': 'Tag removed'}, status=status.HTTP_201_CREATED)
     

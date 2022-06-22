@@ -25,7 +25,7 @@ class MarkerTagView(ViewSet):
         Returns:
             Response -- JSON serialized list of marker tags
         """
-        markerTags = MarkerTag.objects.all()
+        markerTags = MarkerTag.objects.filter(user=request.auth.user)
         serializer = MarkerTagSerializer(markerTags, many=True)
         return Response(serializer.data)
     
