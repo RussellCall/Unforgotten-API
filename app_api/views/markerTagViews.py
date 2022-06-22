@@ -6,12 +6,12 @@ from app_api.models import MarkerTag
 from app_api.serializers import MarkerTagSerializer
 
 class MarkerTagView(ViewSet):
-    """Unforgotten Nashville marker views"""
+    """Unforgotten Nashville marker tag views"""
     
     def retrieve(self, request, pk):
-        """Handle GET requests for single marker
+        """Handle GET requests for single marker tag
             Returns:
-            Response -- JSON serialized marker
+            Response -- JSON serialized marker tag
         """
         try:
             markerTags = MarkerTag.objects.get(pk=pk)
@@ -21,9 +21,9 @@ class MarkerTagView(ViewSet):
             return Response({'message' : ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
     def list(self, request):
-        """Handle GET requests to get all game types
+        """Handle GET requests to get all marker tags
         Returns:
-            Response -- JSON serialized list of game types
+            Response -- JSON serialized list of marker tags
         """
         markerTags = MarkerTag.objects.all()
         serializer = MarkerTagSerializer(markerTags, many=True)
@@ -33,3 +33,4 @@ class MarkerTagView(ViewSet):
         marker_tag = MarkerTag.objects.get(pk=pk)
         marker_tag.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    

@@ -6,12 +6,12 @@ from app_api.models import Tag
 from app_api.serializers import TagSerializer
 
 class TagView(ViewSet):
-    """Unforgotten Nashville marker views"""
+    """Unforgotten Nashville tag views"""
     
     def retrieve(self, request, pk):
-        """Handle GET requests for single marker
+        """Handle GET requests for single tag
             Returns:
-            Response -- JSON serialized marker
+            Response -- JSON serialized tag
         """
         try:
             tags = Tag.objects.get(pk=pk)
@@ -21,9 +21,9 @@ class TagView(ViewSet):
             return Response({'message' : ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
     def list(self, request):
-        """Handle GET requests to get all game types
+        """Handle GET requests to get all tags
         Returns:
-            Response -- JSON serialized list of game types
+            Response -- JSON serialized list of tags
         """
         tags = Tag.objects.all()
         serializer = TagSerializer(tags, many=True)

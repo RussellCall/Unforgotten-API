@@ -23,9 +23,9 @@ class MarkerView(ViewSet):
             return Response({'message' : ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
     def list(self, request):
-        """Handle GET requests to get all game types
+        """Handle GET requests to get all markers
         Returns:
-            Response -- JSON serialized list of game types
+            Response -- JSON serialized list of markers
         """
         markers = Marker.objects.all()
         serializer = MarkerSerializer(markers, many=True)
@@ -33,8 +33,7 @@ class MarkerView(ViewSet):
     
     @action(methods=['put'], detail=True)
     def add_tag(self, request, pk):
-        """Post request for a user to sign up for an event"""
-    
+        """Post request for a user to assign a tag to a marker"""
         tag = Tag.objects.get(pk=request.data["tag"])
         user = User.objects.get(pk=request.auth.user.id)
         MarkerTag.objects.create(marker_id=pk, user=user, tag=tag)
@@ -42,9 +41,9 @@ class MarkerView(ViewSet):
     
     @action(methods=['delete'], detail=True)
     def remove_tag(self, request, pk):
-        """Post request for a user to sign up for an event"""
-    
-        marker = Marker.objects.get(pk=request.data["MarkerTag"])
-        marker.tags.remove(marker)
-        return Response({'message': 'Tag added'}, status=status.HTTP_201_CREATED)
+        """Post request for a user to remove a tag from a marker"""
+        tag = Tag.objects.get(pk=pk)
+        user = User.objects.get(pk=request.auth.user.id)
+        MarkerTag.tag.remove(marker_id=pk, user=user, tag=tag)
+        return Response({'message': 'Tag removed'}, status=status.HTTP_201_CREATED)
     

@@ -35,17 +35,7 @@ class ImageView(ViewSet):
         if marker_id is not None:
                 marker = marker_id.filter(marker_id=marker)
         serializer = ImageSerializer(images, many=True)
-        return Response(serializer.data)
-    
-    
-        # comment = Comments.objects.all()
-        # marker_id = request.query_params.get('marker_id', None)
-        # if marker_id is not None:
-        #         marker = marker_id.filter(marker_id=marker)
-        # serializer = CommentSerializer(comment, many=True)
-        # return Response(serializer.data)
-    
-    
+        return Response(serializer.data)    
     
     def create(self, request):
         """Handle POST operations
