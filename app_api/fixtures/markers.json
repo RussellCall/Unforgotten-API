@@ -1,0 +1,153 @@
+
+[
+    {
+        "model": "app_api.marker",
+        "pk": 1,
+        "fields": {
+            "year_erected": 1968,
+            "marker_name": "Battle of Nashville Stewart's Line",
+            "marker_text": "Loring's division of Stewart's Corps, Hood's Confederate Army of Tennessee, fought behind this stone wall Dec. 16, 1864.  All Federal attacks were beaten back until the Confederate line was broken a mile to the west.  The division retreated south through the hills toward Brentwood.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "4618 Lealand Lane",
+            "latitude": 36.086311,
+            "longitude": -86.791167,
+            "mapped_location": "POINT (-86.791167 36.086311)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 2,
+        "fields": {
+            "year_erected": 2008,
+            "marker_name": "Battle of Nashville (december 16, 1864) Assault on the Barricade",
+            "marker_text": "During the retreat from Nashville, Colonel Edmund Rucker's brigade attempted to block the Union pursuit by erecting a barricade of fence rails and logs across Granny White Pike, 1/2 mile south of this spot. During the ensuing night attack by Union cavalry, fierce hand-to-hand fighting took place until the position finally was overrun around midnight, with Rucker wounded and then captured.",
+            "civil_war_site": true,
+            "notes": "Donated by Richland Country Club",
+            "location": "Granny White Pike at Richland Country Club",
+            "latitude": 36.050964,
+            "longitude": -86.816416,
+            "mapped_location": "POINT (-86.816416 36.050964)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 3,
+        "fields": {
+            "year_erected": 2008,
+            "marker_name": "Dry-stack Stone Walls",
+            "marker_text": "Dry-stack stone walls, a Scots-Irish building tradition adapted by slaves in the early 19th century, were common throughout middle Tennessee. During the 1864 Battle of Nashville, Brigadier General Henry Jackson was captured at this wall on the Middle Franklin Turnpike after the Confederate line collapsed at Shy's Hill.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "4708 Granny White Pike",
+            "latitude": 36.085384,
+            "longitude": -86.804379,
+            "mapped_location": "POINT (-86.804379 36.085384)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 4,
+        "fields": {
+            "year_erected": 1970,
+            "marker_name": "Battle of Nashville Peach Orchard Hill",
+            "marker_text": "On Dec. 16, 1864, Gen. S.D. Lee's Corps, Army of Tennessee, held this right flank of Hood's defense line which ran south along the crest of this ridge. Violent artillery fire & infantry attacks by the corps of Wood & Steedman failed to dislodge the defenders who withdrew only after the collapse of the Confederate left and center in late afternoon.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "North side of Harding Place, East of Franklin Road",
+            "latitude": 36.085754,
+            "longitude": -86.768892,
+            "mapped_location": "POINT (-86.768892 36.08575400000001)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 5,
+        "fields": {
+            "year_erected": 2008,
+            "marker_name": "Battle of Nashville (december 16, 1864) Confederate Final Stand",
+            "marker_text": "After the withdrawal from the main Confederate line at Peach Orchard Hill, Lt. Gen. Stephen D. Lee formed a battle line across Franklin Pike 400 yards east of here with 200 men from the remnants of Brig. Gen. Henry Clayton's division and two cannons from the Eufaula Light Artillery. This last line of defense halted the Federal pursuit for the night as the Confederate army retreated through the hills to the southwest.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "827 Tyne Blvd",
+            "latitude": 36.077687,
+            "longitude": -86.777135,
+            "mapped_location": "POINT (-86.777135 36.077687)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 6,
+        "fields": {
+            "year_erected": 2017,
+            "marker_name": "Surrender of Nashville Charles Fuller Home",
+            "marker_text": "After Union success to north in TN and KY, Col. John Kennett, 4th Ohio Vol. Cavalry, ordered Cpt. H.C. Rodgers to Edgefield. They met with Nashville mayor R.B. Cheatham, Feb. 23, 1862, at the Edgefield home of banker Charles Fuller, to discuss terms of surrender. The city was conveyed to Federal control on Feb. 25. Fuller became a U.S. Treasury agent at the end of the war prior to his death in 1868. The Fuller home was destroyed in the East Nashville Fire of 1916.",
+            "civil_war_site": true,
+            "notes": "typo on original, replaced 2017",
+            "location": "612 Woodland Street, East Park",
+            "latitude": 36.17293,
+            "longitude": -86.761689,
+            "mapped_location": "POINT (-86.761689 36.17293)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 7,
+        "fields": {
+            "year_erected": 1975,
+            "marker_name": "Fort Negley Site",
+            "marker_text": "The guns of Fort Negley, commanding three turnpikes to the South & Southeast, opened the Battle of Nashville, Dec. 15, 1864. This site was selected by Capt. J.S. Morton as the key strongpoint in the Federal line around the city. The European style fort named for General James S. Negley, was built of stone, logs, earth and railway iron.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "Ridley Avenue, at Fort Negley entrance",
+            "latitude": 36.142933,
+            "longitude": -86.775909,
+            "mapped_location": "POINT (-86.775909 36.142933)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 8,
+        "fields": {
+            "year_erected": 2017,
+            "marker_name": "Surrender of Nashville East Bank of the Cumberland",
+            "marker_text": "On Feb. 25, 1862, Nashville became the first Confederate state capital to fall to Federal forces. Two days prior, the 4th Ohio Vol. Cavalry arrived from Bowling Green, KY and set up pickets along the east bank of the river. Gen. D.C. Buell arrived by rail with about 9,000 men, and on Feb. 25, Gen. William Nelson and a flotilla carrying around 7,000 men arrived from the recent surrender at Fort Donelson. That afternoon, Mayor R.B. Cheatham surrendered the city to Gen. Buell.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "East Bank Greenway, Cumberland Park",
+            "latitude": 36.16382,
+            "longitude": -86.772166,
+            "mapped_location": "POINT (-86.772166 36.16382)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 9,
+        "fields": {
+            "year_erected": 1992,
+            "marker_name": "Battle of Nashville Confederate Line",
+            "marker_text": "Trenches about 20ft. N of this point, held by Loring's Division, were the center of the Confederate main line before the Battle of Nashville. On Dec. 15, 1864, Redoubt No.1, a key artillery salient 200 yds. NW, fired on Federal forces until overrun by General Wood's troops late in the day, when Confederates retreated toward Granny White Pike.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "1808 Woodmont Boulevard, near intersection of Hopkins St.",
+            "latitude": 36.113627,
+            "longitude": -86.805837,
+            "mapped_location": "POINT (-86.805837 36.113627)"
+        }
+    },
+    {
+        "model": "app_api.marker",
+        "pk": 10,
+        "fields": {
+            "year_erected": 1968,
+            "marker_name": "Battle of Nashville Shy's Hill",
+            "marker_text": "On this hill was fought the decisive encounter of the Battle of Nashville December 16, 1864.  At 4:15 p.m. a Federal assault at the angle on top of the hill broke the Confederate line.  Col. W. M. Shy, 20th Tenn. Inf. was killed and Gen. T. B. Smith was captured.  The Confederates retreated over the Overton Hills to the Franklin Pike.",
+            "civil_war_site": true,
+            "notes": "",
+            "location": "W side of Benton Smith Road,  South of Harding Place at bottom of Shy's Hill Trail",
+            "latitude": 36.087691,
+            "longitude": -86.807835,
+            "mapped_location": "POINT (-86.807835 36.087691)"
+        }
+    }
+]

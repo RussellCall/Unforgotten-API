@@ -1,0 +1,10 @@
+[
+    {
+        "model": "app_api.markertag",
+        "pk": 1,
+        "fields": {
+            "marker": 1,
+            "tag":1
+        }
+    }
+]

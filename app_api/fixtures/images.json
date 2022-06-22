@@ -1,0 +1,11 @@
+[
+    {
+        "model": "app_api.image",
+        "pk": 1,
+        "fields": {
+            "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Battle_of_Nashville_Kurz_%26_Allison.jpg",
+            "user": 1,
+            "marker": 1
+        }
+    }
+]
