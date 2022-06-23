@@ -11,28 +11,28 @@ from rest_framework.decorators import action
 class CommentView(ViewSet):
     """Unforgotten Nashville marker views"""
     
-    def retrieve(self, request, pk):
+    def retrieve(self, request, pk):  # get a comment by id
         """Handle GET requests for single comment
             Returns:
             Response -- JSON serialized comment
         """
         try:
-            comment = Comments.objects.get(pk=pk)
-            serializer = CommentSerializer(comment)
+            comment = Comments.objects.get(pk=pk) # get comment by id
+            serializer = CommentSerializer(comment) # serialize comment
             return Response(serializer.data)
-        except Comments.DoesNotExist as ex:
-            return Response({'message' : ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except Comments.DoesNotExist as ex: 
+            return Response({'message' : ex.args[0]}, status=status.HTTP_404_NOT_FOUND) # return error message if comment does not exist
         
-    def list(self, request):
+    def list(self, request): # get all comments
         """Handle GET requests to get all comments
         Returns:
             Response -- JSON serialized list of comments
         """
         comment = Comments.objects.all()
-        marker_id = request.query_params.get('marker_id', None)
-        if marker_id is not None:
-                marker = marker_id.filter(marker_id=marker)
-        serializer = CommentSerializer(comment, many=True)
+        marker_id = request.query_params.get('marker_id', None) # get marker_id from query params
+        if marker_id is not None: 
+                marker = marker_id.filter(marker_id=marker)  
+        serializer = CommentSerializer(comment, many=True) 
         return Response(serializer.data)
     
     def create(self, request):
