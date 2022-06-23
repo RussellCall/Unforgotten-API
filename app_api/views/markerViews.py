@@ -42,7 +42,7 @@ class MarkerView(ViewSet):
     @action(methods=['delete'], detail=True)
     def remove_tag(self, request, pk):
         """Post request for a user to remove a tag from a marker"""
-        tag = Tag.objects.get(pk=pk)
+        tag = Tag.objects.get(pk=request.data["tag"])
         user = User.objects.get(pk=request.auth.user.id)
         markerTag = MarkerTag.objects.get(marker_id=pk, user=user, tag=tag)
         markerTag.delete()
